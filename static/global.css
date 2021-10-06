@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
 body {
 	margin: 0;
 	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
-	color: #333;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, input, label, button, a {
+	color: #5b5b5b;
 	margin: 0 0 0.5em 0;
+	font-family: 'Lilita One', cursive;
 	font-weight: 400;
 	line-height: 1.2;
 }
@@ -15,9 +18,17 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 2em;
 }
-
-a {
-	color: inherit;
+h2, .title {
+	font-size: 32px;
+}
+h3, .subtitle {
+	font-size: 28px;
+}
+h4, .font-xl {
+	font-size: 24px;
+}
+h5, font-l {
+	font-size: 20px;
 }
 
 code {
