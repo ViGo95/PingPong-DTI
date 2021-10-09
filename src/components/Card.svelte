@@ -1,15 +1,66 @@
 <script>
-  export let isMini = ""
+
+  import { playersStore } from '../store/store'
+
+  export let playerInfo
+  let playersList
+
+  playersStore.subscribe(value => playersList = value)
+
+  let numbers = [
+    'One',
+    'Two',
+    'Three',
+    'Four',
+    'Five',
+    'Six',
+    'Seven',
+    'Eight',
+    'Nine',
+    'Ten',
+    'Eleven',
+    'Twelve',
+  ]
+
+  function listPlayer() {
+    let player = {
+      id: playersList.length + 1,
+      name: document.getElementById('name').value
+    }
+
+    player.number = numbers[playersList.length]
+
+    playersStore.update(values => ([...values, player]))
+
+    document.getElementById('name').value = ''
+
+  }
+
 </script>
 
-<div class="Card {isMini}">
-  <img src="images/user.svg" alt="">
-  <div class="Card-form {isMini}">
-    <label for="player" class="subtitle">Second</label>
-    <input id="player" type="text" placeholder="Name" class="font-l">
-    <button class="font-xl">List!</button>
+{#if playerInfo}
+
+  <div class="mini">
+    <img src="images/user.svg" alt="">
+    <div class="mini-form">
+      <label for="player" class="subtitle">{playerInfo.number}</label>
+      <h5>{playerInfo.name}</h5>
+      <button class="font-xl color{playerInfo.id}">Listed</button>
+    </div>
   </div>
-</div>
+
+{:else}
+
+  <div class="Card">
+    <img src="images/user.svg" alt="">
+    <div class="Card-form">
+      <label for="player" class="subtitle">{numbers[playersList.length]}</label>
+      <input id="name" type="text" placeholder="Name" class="font-l">
+      <button on:click={listPlayer} class="font-xl">List!</button>
+    </div>
+  </div>
+
+{/if}
 
 <style>
   .Card {
@@ -59,22 +110,49 @@
   }
 
   .mini {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: #E5E5E5;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    overflow: hidden;
     border-radius: 14px;
+    box-sizing: border-box;
+    margin: 0 0 20px 0;
+    padding: 0 0 0 20px;
+  }
+  .mini img {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 100%;
   }
 
-  .mini > .subtitle {
-    font-size: 16px;
+  .mini-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
   }
 
-  .mini > input {
+  .mini-form > .subtitle {
+    font-size: 30px;
+  }
+
+  .mini-form > h5 {
     font-size: 14px;
     border: none;
   }
 
-  .mini > button {
+  .mini-form > button {
+    color: white;
     font-size: 14px;
-    width: 65%;
-    height: 28%;
+    width: 35%;
+    height: 35px;
     border-radius: 6px;
+    border: none;
   }
 </style>

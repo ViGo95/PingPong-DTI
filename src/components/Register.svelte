@@ -4,7 +4,7 @@
 
   import Card from './Card.svelte'
 
-  const players = []
+  let players
 
   playersStore.subscribe(value => {
     players = value
@@ -21,7 +21,7 @@
     <div class="Register-list">
 
       {#each players as player}
-        <Card isMini="mini"/>
+        <Card playerInfo={player}/>
       {/each}
 
     </div>
@@ -34,6 +34,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
   }
 
   .Register-content {
@@ -43,12 +44,9 @@
   }
 
   .Register-list {
-    display: grid;
-    grid-template-columns: repeat(2, 37.75vw);
-    grid-template-rows: repeat(auto, 20vw);
-    grid-gap: 20px;
-    width: 82vw;
-    height: 55vw;
+    flex-direction: column;
+    width: 80vw;
     margin: 36px 0 0 0;
+    padding: 0 0 36px 0;
   }
 </style>

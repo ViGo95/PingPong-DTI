@@ -9,7 +9,6 @@ body {
 
 h1, h2, h3, h4, h5, h6, input, label, button, a {
 	color: #5b5b5b;
-	margin: 0 0 0.5em 0;
 	font-family: 'Lilita One', cursive;
 	font-weight: 400;
 	line-height: 1.2;
@@ -29,6 +28,43 @@ h4, .font-xl {
 }
 h5, font-l {
 	font-size: 20px;
+}
+
+.color1 {
+	background-color: #76B7E7;
+}
+.color2 {
+	background-color: #E77676;
+}
+.color3 {
+	background-color: #E7BA76;
+}
+.color4 {
+	background-color: #AE76E7;
+}
+.color5 {
+	background-color: #7ACC78;
+}
+.color6 {
+	background-color: #CB7D45;
+}
+.color7 {
+	background-color: #6A6ED6;
+}
+.color8 {
+	background-color: #A45757;
+}
+.color9 {
+	background-color: #ABA859;
+}
+.color10 {
+	background-color: #E776C7;
+}
+.color11 {
+	background-color: #648C66;
+}
+.color12 {
+	background-color: #75C6B7;
 }
 
 code {
