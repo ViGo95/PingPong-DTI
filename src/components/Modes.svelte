@@ -11,9 +11,9 @@
       </a>
       <a class="Mode league" href="/">
         <img src="images/league.svg" alt="">
-        <h2>Leage</h2>
+        <h2>League</h2>
       </a>
-      <a class="Mode fast" href="/">
+      <a class="Mode fast" href="fast">
         <img src="images/table.svg" alt="">
         <h2>Fast Game</h2>
       </a>
@@ -45,6 +45,7 @@
     overflow: hidden;
   }
   .Mode > h2 {
+    color: #fff;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

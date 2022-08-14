@@ -2,13 +2,14 @@
   import Register from './Register.svelte'
 </script>
 
-<div class="Tournament">
-  <img src="images/logotipo-tour.png" alt="">
+<div class="FastGame">
+  <img src="images/logotipo.png" alt="">
   <Register />
 </div>
 
 <style>
-  .Tournament {
+  .FastGame {
+/*    height: 100vh;*/
     display: flex;
     flex-direction: column;
     align-items: center;

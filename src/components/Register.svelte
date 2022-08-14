@@ -25,11 +25,15 @@
       {/each}
 
     </div>
+    <a href="/" class="Ready-button">
+      <h2>Let's Play</h2>
+    </a>
   </div>
 </div>
 
 <style>
   .Register-container {
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,5 +52,22 @@
     width: 80vw;
     margin: 36px 0 0 0;
     padding: 0 0 36px 0;
+  }
+
+  .Ready-button {
+    font-size: 35px;
+    height: 60px;
+    width: 100%;
+    background: #7acc78;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    text-decoration: none;
+  }
+
+  a > h2 {
+    color: #fff;
   }
 </style>
