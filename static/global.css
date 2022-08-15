@@ -7,6 +7,10 @@ body {
 	line-height: 1.5;
 }
 
+main {
+	height: 100%;
+}
+
 h1, h2, h3, h4, h5, h6, input, label, button, a {
 	color: #5b5b5b;
 	font-family: 'Lilita One', cursive;
