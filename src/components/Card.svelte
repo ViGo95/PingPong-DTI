@@ -41,11 +41,12 @@
 {#if playerInfo}
 
   <div class="mini">
-    <img src="images/user.svg" alt="">
-    <div class="mini-form">
-      <label for="player" class="subtitle">{playerInfo.number}</label>
-      <h5>{playerInfo.name}</h5>
-      <button class="font-xl color{playerInfo.id}">Listed</button>
+    <div class="mini-content">
+      <div class="mini-number color{playerInfo.id}">
+        <h2>{numbers[playersList.length]}</h2>
+      </div>
+      <h2 class="mini-name">{playerInfo.name}</h2>
+      <button>Del</button>
     </div>
   </div>
 
@@ -122,37 +123,18 @@
     border-radius: 14px;
     box-sizing: border-box;
     margin: 0 0 20px 0;
-    padding: 0 0 0 20px;
-  }
-  .mini img {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    height: 100%;
   }
 
-  .mini-form {
+  .mini-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 75%;
+    width: 100%;
   }
 
-  .mini-form > .subtitle {
-    font-size: 30px;
-  }
-
-  .mini-form > h5 {
-    font-size: 14px;
-    border: none;
-  }
-
-  .mini-form > button {
-    color: white;
-    font-size: 14px;
+  .mini-number {
+    height: 100%;
     width: 35%;
-    height: 35px;
-    border-radius: 6px;
-    border: none;
+
   }
 </style>
