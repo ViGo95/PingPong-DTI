@@ -66,6 +66,19 @@ h5, font-l {
 .color12 {
 	background-color: #75C6B7;
 }
+.color13 {
+	background-color: #AFAFAF;
+}
+.color14 {
+	background-color: #383838;
+}
+.color15 {
+	background-color: #FFFFFF;
+	color: #383838 !important;
+}
+.color16 {
+	background-color: #8C246F;
+}
 
 code {
 	font-family: menlo, inconsolata, monospace;

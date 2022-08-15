@@ -20,6 +20,10 @@
     'Ten',
     'Eleven',
     'Twelve',
+    'Thirteen',
+    'Fourteen',
+    'Fifteen',
+    'Sixteen'
   ]
 
   function listPlayer() {

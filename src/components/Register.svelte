@@ -4,6 +4,8 @@
 
   import Card from './Card.svelte'
 
+  export let playerLimit = 16;
+
   let players
 
   playersStore.subscribe(value => {
@@ -15,9 +17,11 @@
 <div class="Register">
   <div class="Register-container">
     <h2>Get the players ready...</h2>
-    <div class="Register-content">
-      <Card />
-    </div>
+    {#if players.length < playerLimit}
+      <div class="Register-content">
+        <Card />
+      </div>
+    {/if}
     <div class="Register-list">
 
       {#each players as player}

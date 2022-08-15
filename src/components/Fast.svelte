@@ -4,7 +4,7 @@
 
 <div class="FastGame">
   <img src="images/logotipo.png" alt="">
-  <Register />
+  <Register playerLimit={2}/>
 </div>
 
 <style>
