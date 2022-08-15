@@ -29,15 +29,23 @@
       {/each}
 
     </div>
-    <a href="/" class="Ready-button">
-      <h2>Let's Play</h2>
-    </a>
+
+    <div class="Register-button">
+      <a href="/" class="Ready-button">
+        <h2>Let's Play</h2>
+      </a>
+    </div>
   </div>
 </div>
 
 <style>
+  .Register {
+    height: 80%;
+  }
+
   .Register-container {
-    height: 70%;
+    height: 100%;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,17 +53,27 @@
     box-sizing: border-box;
   }
 
+  .Register-container > h2 {
+    margin: 0;
+  }
+
   .Register-content {
     width: 80vw;
-    height: 45vw;
+    height: 60vw;
     margin: 12px 0;
   }
 
   .Register-list {
-    flex-direction: column;
     width: 80vw;
-    margin: 36px 0 0 0;
-    padding: 0 0 36px 0;
+    height: 70%;
+    padding: 20px;
+    margin-bottom: 15px;
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .Register-button {
+    width: 100%;
   }
 
   .Ready-button {
