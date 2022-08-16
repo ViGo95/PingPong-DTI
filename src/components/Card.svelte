@@ -43,10 +43,10 @@
   <div class="mini">
     <div class="mini-content">
       <div class="mini-number color{playerInfo.id}">
-        <h2>{numbers[playersList.length]}</h2>
+        <h2>{playerInfo.number}</h2>
       </div>
       <h2 class="mini-name">{playerInfo.name}</h2>
-      <button>Del</button>
+      <button class="color2">Del</button>
     </div>
   </div>
 
@@ -57,7 +57,7 @@
     <div class="Card-form">
       <label for="player" class="subtitle">{numbers[playersList.length]}</label>
       <input id="name" type="text" placeholder="Name" class="font-l">
-      <button on:click={listPlayer} class="font-xl">List!</button>
+      <button on:click={listPlayer} class="font-xl color{playersList.length + 1}">List!</button>
     </div>
   </div>
 
@@ -105,7 +105,7 @@
     color: white;
     width: 70%;
     height: 30%;
-    background-color: #e7ba76;
+    /* background-color: #e7ba76; */
     border: none;
     border-radius: 10px;
   }
@@ -115,7 +115,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 80px;
+    height: 8vh;
     background-color: #E5E5E5;
     box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
@@ -130,11 +130,27 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 100%;
   }
 
   .mini-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
     width: 35%;
+    text-align: center;
+  }
 
+  .mini-number > h2 {
+    color: #FFF;
+    margin: 0;
+  }
+
+  .mini-content > button {
+    color: #FFF;
+    border: none;
+    width: 15%;
+    height: 100%;
   }
 </style>
