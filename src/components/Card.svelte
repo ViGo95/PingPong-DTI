@@ -48,11 +48,12 @@
 {#if playerInfo}
 
   <div class="mini">
-    <img src="images/user.svg" alt="">
-    <div class="mini-form">
-      <label for="player" class="subtitle">{playerInfo.number}</label>
-      <h5>{playerInfo.name}</h5>
-      <button class="font-xl color{playerInfo.id}">Listed</button>
+    <div class="mini-content">
+      <div class="mini-number color{playerInfo.id}">
+        <h2>{playerInfo.number}</h2>
+      </div>
+      <h2 class="mini-name">{playerInfo.name}</h2>
+      <button class="color2">Del</button>
     </div>
   </div>
 
@@ -63,7 +64,7 @@
     <div class="Card-form">
       <label for="player" class="subtitle">{numbers[playersList.length]}</label>
       <input id="name" type="text" placeholder="Name" class="font-l">
-      <button on:click={listPlayer} class="font-xl">List!</button>
+      <button on:click={listPlayer} class="font-xl color{playersList.length + 1}">List!</button>
     </div>
   </div>
 
@@ -111,7 +112,7 @@
     color: white;
     width: 70%;
     height: 30%;
-    background-color: #e7ba76;
+    /* background-color: #e7ba76; */
     border: none;
     border-radius: 10px;
   }
@@ -121,7 +122,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 80px;
+    height: 8vh;
     background-color: #E5E5E5;
     box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
@@ -129,37 +130,34 @@
     border-radius: 14px;
     box-sizing: border-box;
     margin: 0 0 20px 0;
-    padding: 0 0 0 20px;
-  }
-  .mini img {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    height: 100%;
   }
 
-  .mini-form {
+  .mini-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 75%;
+    width: 100%;
+    height: 100%;
   }
 
-  .mini-form > .subtitle {
-    font-size: 30px;
-  }
-
-  .mini-form > h5 {
-    font-size: 14px;
-    border: none;
-  }
-
-  .mini-form > button {
-    color: white;
-    font-size: 14px;
+  .mini-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
     width: 35%;
-    height: 35px;
-    border-radius: 6px;
+    text-align: center;
+  }
+
+  .mini-number > h2 {
+    color: #FFF;
+    margin: 0;
+  }
+
+  .mini-content > button {
+    color: #FFF;
     border: none;
+    width: 15%;
+    height: 100%;
   }
 </style>

@@ -9,13 +9,14 @@
 
 <style>
   .Tournament {
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
   }
 
   img {
-    width: 70vw;
-    margin-top: 24px;
+    height: 20vh;
   }
 </style>

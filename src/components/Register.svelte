@@ -67,7 +67,7 @@
     width: 80vw;
     height: 70%;
     padding: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     flex-direction: column;
     overflow: scroll;
   }
