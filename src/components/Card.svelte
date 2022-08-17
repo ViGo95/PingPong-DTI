@@ -27,17 +27,20 @@
   ]
 
   function listPlayer() {
-    let player = {
-      id: playersList.length + 1,
-      name: document.getElementById('name').value
+    let name = document.getElementById('name').value.replaceAll(' ', '');
+    if(name) {
+      let player = {
+        id: playersList.length + 1,
+        name: document.getElementById('name').value
+      }
+  
+      player.number = numbers[playersList.length]
+  
+      playersStore.update(values => ([...values, player]))
+  
+      document.getElementById('name').value = ''
     }
-
-    player.number = numbers[playersList.length]
-
-    playersStore.update(values => ([...values, player]))
-
     document.getElementById('name').value = ''
-
   }
 
 </script>
