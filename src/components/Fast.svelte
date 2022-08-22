@@ -1,5 +1,11 @@
 <script>
   import Register from './Register.svelte'
+
+  import { gameStore } from '../store/store'
+  let gameMode = 'fast'
+
+  gameStore.update(value => gameMode)
+
 </script>
 
 <div class="FastGame">

@@ -31,7 +31,7 @@
     </div>
 
     <div class="Register-button">
-      <a href="/" class="Ready-button">
+      <a href="game" class="Ready-button">
         <h2>Let's Play</h2>
       </a>
     </div>

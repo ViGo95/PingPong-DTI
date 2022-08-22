@@ -1,5 +1,11 @@
 <script>
   import Register from './Register.svelte'
+
+  import { gameStore } from '../store/store'
+  let gameMode = 'tour'
+
+  gameStore.update(value => gameMode)
+
 </script>
 
 <div class="Tournament">

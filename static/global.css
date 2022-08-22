@@ -84,6 +84,12 @@ h5, font-l {
 	background-color: #8C246F;
 }
 
+.serving {
+	background-image: url(images/Racquet.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 code {
 	font-family: menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);

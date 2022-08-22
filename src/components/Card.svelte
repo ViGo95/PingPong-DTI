@@ -7,37 +7,36 @@
 
   playersStore.subscribe(value => playersList = value)
 
-  let numbers = [
-    'One',
-    'Two',
-    'Three',
-    'Four',
-    'Five',
-    'Six',
-    'Seven',
-    'Eight',
-    'Nine',
-    'Ten',
-    'Eleven',
-    'Twelve',
-    'Thirteen',
-    'Fourteen',
-    'Fifteen',
-    'Sixteen'
-  ]
+  // let numbers = [
+  //   'One',
+  //   'Two',
+  //   'Three',
+  //   'Four',
+  //   'Five',
+  //   'Six',
+  //   'Seven',
+  //   'Eight',
+  //   'Nine',
+  //   'Ten',
+  //   'Eleven',
+  //   'Twelve',
+  //   'Thirteen',
+  //   'Fourteen',
+  //   'Fifteen',
+  //   'Sixteen'
+  // ]
 
   function listPlayer() {
     let name = document.getElementById('name').value.replaceAll(' ', '');
     if(name) {
       let player = {
         id: playersList.length + 1,
-        name: document.getElementById('name').value
+        name: document.getElementById('name').value,
+        points: 0
       }
-  
-      player.number = numbers[playersList.length]
-  
+
       playersStore.update(values => ([...values, player]))
-  
+
       document.getElementById('name').value = ''
     }
     document.getElementById('name').value = ''
@@ -50,7 +49,7 @@
   <div class="mini">
     <div class="mini-content">
       <div class="mini-number color{playerInfo.id}">
-        <h2>{playerInfo.number}</h2>
+        <h2>#{playerInfo.id}</h2>
       </div>
       <h2 class="mini-name">{playerInfo.name}</h2>
       <button class="color2">Del</button>
@@ -62,7 +61,7 @@
   <div class="Card">
     <img src="images/user.svg" alt="">
     <div class="Card-form">
-      <label for="player" class="subtitle">{numbers[playersList.length]}</label>
+      <label for="player" class="subtitle">#{playersList.length + 1}</label>
       <input id="name" type="text" placeholder="Name" class="font-l">
       <button on:click={listPlayer} class="font-xl color{playersList.length + 1}">List!</button>
     </div>
