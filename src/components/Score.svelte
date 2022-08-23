@@ -3,76 +3,151 @@
 
   let players
   let serve = true
+  let deuce = false
 
   playersStore.subscribe(value => players = value)
 
-  console.log(players)
-  let point = (player) => {
+  let changePointBtn = (btn) => {
+
+    if(btn) {
+      let pointBtn = document.getElementById(btn)
+
+      pointBtn.style.backgroundColor = "#E7BA76"
+    } else {
+
+      let pointBtn = document.getElementsByClassName("btn")
+
+      pointBtn[0].style.backgroundColor = "#7ACC78"   // Mejorar logica.
+      pointBtn[1].style.backgroundColor = "#7ACC78"   // Mejorar logica.
+    }
+  }
+
+  let getPoint = (player) => {
 
     players[player].points += 1
 
     serve = !serve
+
+    if(players[0].points >= 10 && players[0].points > players[1].points) {
+      changePointBtn("pointBtn1")
+      deuce = true
+    } else if(players[1].points >= 10 && players[1].points > players[0].points) {
+      changePointBtn("pointBtn2")
+      deuce = true
+    } else if(deuce && players[0].points === players[1].points) {
+      changePointBtn()
+      deuce = false
+    }
+
+    if(players[0].points >= 11 && players[0].points > players[1].points + 1) {
+      let name = document.getElementsByClassName('player2-info')[0]
+      let points = document.getElementsByClassName('player2-info')[1]
+      // info[0].style.color = '#A4A4A4'
+      // info[1].style.color = '#A4A4A4'
+      console.log(name)
+    } else if(players[1].points >= 11 && players[1].points > players[0].points + 1) {
+      let info = document.getElementsByClassName('player1-info')
+      // info[0].style.color = '#A4A4A4'
+      // info[1].style.color = '#A4A4A4'
+      console.log(info)
+    }
   }
 
 </script>
 
-<div class="Game">
-  <div class="Game-score">
-    <div class="Game-score_content">
-      <div class="score-player player1 {serve === true ? 'serving' : ''}">
-        <div class="score-player_name">
-          <h2>{players[0].name}</h2>
+  <div class="Score">
+
+    {#if (players[0].points >= 11 && players[0].points > players[1].points + 1) || (players[1].points >= 11 && players[1].points > players[0].points + 1)}
+      <div class="Score-content_end">
+        <div class="players">
+          <div class="score-player player1">
+            <div class="score-player_name">
+              <h2 class="player1-info">{players[0].name}</h2>
+            </div>
+            <div class="score-player_points">
+              <h2 class="player1-info">{players[0].points}</h2>
+            </div>
+          </div>
+          <div class="score-player player2">
+            <div class="score-player_name">
+              <h2 class="player2-info">{players[1].name}</h2>
+            </div>
+            <div class="score-player_points">
+              <h2 class="player2-info">{players[1].points}</h2>
+            </div>
+          </div>
         </div>
-        <div class="score-player_points">
-          <h2>{players[0].points}</h2>
-        </div>
-        <div class="score-player_button">
-          <button on:click={() => point(0)}>
-            Point
-          </button>
-        </div>
-      </div>
-      <div class="score-player player2 {serve === false ? 'serving' : ''}">
-        <div class="score-player_name">
-          <h2>{players[1].name}</h2>
-        </div>
-        <div class="score-player_points">
-          <h2>{players[1].points}</h2>
-        </div>
-        <div class="score-player_button">
-          <button on:click={() => point(1)}>
-            Point
-          </button>
+        <div class="Score-endgame">
+          <a href="/">Go Next!</a>
         </div>
       </div>
-    </div>
+
+    {:else}
+
+      <div class="Score-content">
+        <div class="score-player player1 {serve === true ? 'serving' : ''}">
+          <div class="score-player_name">
+            <h2>{players[0].name}</h2>
+          </div>
+          <div class="score-player_points">
+            <h2>{players[0].points}</h2>
+          </div>
+          <div class="score-player_button">
+            <button id="pointBtn1" class="btn" on:click={() => getPoint(0)}>
+              Point
+            </button>
+          </div>
+        </div>
+        <div class="score-player player2 {serve === false ? 'serving' : ''}">
+          <div class="score-player_name">
+            <h2>{players[1].name}</h2>
+          </div>
+          <div class="score-player_points">
+            <h2>{players[1].points}</h2>
+          </div>
+          <div class="score-player_button">
+            <button id="pointBtn2" class="btn" on:click={() => getPoint(1)}>
+              Point
+            </button>
+          </div>
+        </div>
+      </div>
+    {/if}
   </div>
-</div>
 
 <style>
-  .Game {
-    height: 80vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .Game-score {
+  .Score {
     background-color: #E5E5E5;
     width: 80vw;
     height: 80vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
   }
 
-  .Game-score_content {
+  .Score-content {
     width: 100%;
     height: 80%;
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+
+  .players {
+    width: 100%;
+    height: 75%;
+    display: flex;
+  }
+
+  .Score-content_end {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -125,5 +200,23 @@
     background-color: #7ACC78;
     border: none;
     border-radius: 10px;
+  }
+
+  .Score-endgame {
+    font-size: 24px;
+    height: 15%;
+    width: 90%;
+    background: #7acc78;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    text-decoration: none;
+  }
+
+  .Score-endgame a {
+    color: #E5E5E5;
+    text-decoration: none;
   }
 </style>

@@ -15,7 +15,9 @@
     {:else}
       <img src="images/logotipo.png" alt="">
     {/if}
-    <Score />
+    <div class="Game-play">
+      <Score />
+    </div>
   </div>
 
 <style>
@@ -25,6 +27,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .Game-play {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   img {

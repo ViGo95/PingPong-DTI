@@ -1,5 +1,11 @@
 <script>
   import Modes from "./Modes.svelte";
+
+  import { playersStore } from '../store/store'
+
+  (function cleanStore() {
+    playersStore.set([])
+  })()
 </script>
 
 <div class="Home">
