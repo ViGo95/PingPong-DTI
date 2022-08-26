@@ -1,10 +1,12 @@
 <script>
   import Modes from "./Modes.svelte";
 
-  import { playersStore } from '../store/store'
+  import { playersStore, gameStore, modeStore } from '../store/store'
 
   (function cleanStore() {
     playersStore.set([])
+    gameStore.set([])
+    modeStore.set()
   })()
 </script>
 
@@ -28,7 +30,7 @@
   }
 
   img {
-    width: 70vw;
+    width: 30vh;
   }
 
   footer {

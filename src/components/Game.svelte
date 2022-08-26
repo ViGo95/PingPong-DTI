@@ -1,11 +1,12 @@
 <script>
   import Score from "./Score.svelte";
+  import Record from "./Timeline.svelte";
 
-  import { gameStore, playersStore } from '../store/store'
+  import { modeStore, playersStore } from '../store/store'
 
   let gameMode
 
-  gameStore.subscribe(value => gameMode = value)
+  modeStore.subscribe(value => gameMode = value)
 
 </script>
 
@@ -17,6 +18,7 @@
     {/if}
     <div class="Game-play">
       <Score />
+      <Record />
     </div>
   </div>
 
@@ -25,7 +27,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -33,7 +35,9 @@
     height: 80vh;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   img {

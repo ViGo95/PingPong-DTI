@@ -1,11 +1,19 @@
 <script>
-  import { playersStore } from '../store/store'
+  import { playersStore, gameStore } from '../store/store'
 
   let players
-  let serve = true
+  let serve
+  let oldGame
   let deuce = false
 
+  if (Math.floor(Math.random() * 2)) {
+    serve = true
+  } else {
+    serve =false
+  }
+
   playersStore.subscribe(value => players = value)
+  gameStore.subscribe(value => oldGame = value)
 
   let changePointBtn = (btn) => {
 
@@ -28,6 +36,19 @@
 
     serve = !serve
 
+    let game ={
+      serve: serve === true ? 1 : 2,
+      point: players[player].id
+    }
+
+    if(oldGame.length === 0) {
+      game.play = 1
+    } else {
+      game.play = oldGame.length + 1
+    }
+
+    gameStore.update(values => ([...values, game]))
+
     if(players[0].points >= 10 && players[0].points > players[1].points) {
       changePointBtn("pointBtn1")
       deuce = true
@@ -39,18 +60,7 @@
       deuce = false
     }
 
-    if(players[0].points >= 11 && players[0].points > players[1].points + 1) {
-      let name = document.getElementsByClassName('player2-info')[0]
-      let points = document.getElementsByClassName('player2-info')[1]
-      // info[0].style.color = '#A4A4A4'
-      // info[1].style.color = '#A4A4A4'
-      console.log(name)
-    } else if(players[1].points >= 11 && players[1].points > players[0].points + 1) {
-      let info = document.getElementsByClassName('player1-info')
-      // info[0].style.color = '#A4A4A4'
-      // info[1].style.color = '#A4A4A4'
-      console.log(info)
-    }
+    playersStore.set(players)
   }
 
 </script>
@@ -119,7 +129,7 @@
   .Score {
     background-color: #E5E5E5;
     width: 80vw;
-    height: 80vw;
+    height: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;

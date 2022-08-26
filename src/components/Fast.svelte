@@ -1,10 +1,10 @@
 <script>
   import Register from './Register.svelte'
 
-  import { gameStore } from '../store/store'
+  import { modeStore } from '../store/store'
   let gameMode = 'fast'
 
-  gameStore.update(value => gameMode)
+  modeStore.update(value => gameMode)
 
 </script>
 
