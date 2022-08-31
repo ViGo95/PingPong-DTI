@@ -42,6 +42,18 @@
     document.getElementById('name').value = ''
   }
 
+  function deletePlayer(item) {
+    playersList.splice(item - 1, 1)
+
+    playersList.forEach(player => {
+      if(player.id >= item) {
+        player.id -= 1
+      }
+    });
+
+    playersStore.set(playersList)
+  }
+
 </script>
 
 {#if playerInfo}
@@ -52,7 +64,7 @@
         <h2>#{playerInfo.id}</h2>
       </div>
       <h2 class="mini-name">{playerInfo.name}</h2>
-      <button class="color2">Del</button>
+      <button on:click={() => deletePlayer(playerInfo.id)} class="color2">Del</button>
     </div>
   </div>
 

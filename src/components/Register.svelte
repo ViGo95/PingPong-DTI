@@ -1,12 +1,17 @@
 <script>
 
-  import { playersStore } from '../store/store'
+  import { playersStore, modeStore } from '../store/store'
 
   import Card from './Card.svelte'
 
   export let playerLimit = 16;
 
+  let mode
   let players
+
+  modeStore.subscribe(value => {
+    mode = value
+  })
 
   playersStore.subscribe(value => {
     players = value
@@ -31,9 +36,19 @@
     </div>
 
     <div class="Register-button">
-      <a href="game" class="Ready-button">
-        <h2>Let's Play</h2>
-      </a>
+      {#if mode === 'league'}
+        <a href="game" class="Ready-button">
+          <h2>Let's Play</h2>
+        </a>
+      {:else if mode === 'tour'}
+        <a href="game" class="Ready-button">
+          <h2>Let's Play</h2>
+        </a>
+      {:else}
+        <a href="game" class="Ready-button">
+          <h2>Let's Play</h2>
+        </a>
+      {/if}
     </div>
   </div>
 </div>

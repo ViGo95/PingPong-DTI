@@ -5,11 +5,11 @@
 <div class="Modes">
   <div class="Modes-container">
     <div class="Modes-content">
-      <a class="Mode tournament" href="tournament">
+      <a class="Mode tournament" href="/">
         <img src="images/cup.svg" alt="">
         <h2>Tournament</h2>
       </a>
-      <a class="Mode league" href="/">
+      <a class="Mode league" href="league">
         <img src="images/league.svg" alt="">
         <h2>League</h2>
       </a>

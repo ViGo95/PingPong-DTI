@@ -2,19 +2,19 @@
   import Register from './Register.svelte'
 
   import { gameStore } from '../store/store'
-  let gameMode = 'tour'
+  let gameMode = 'league'
 
   gameStore.update(value => gameMode)
 
 </script>
 
-<div class="Tournament">
+<div class="League">
   <img src="images/logotipo-tour.png" alt="">
   <Register />
 </div>
 
 <style>
-  .Tournament {
+  .League {
     height: 100%;
     display: flex;
     flex-direction: column;
